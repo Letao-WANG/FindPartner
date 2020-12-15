@@ -70,7 +70,6 @@ public  class World   {
     /** The main canvas for viewing the world. */   
     private Canvas3D canvas3d;
     /** For managing the mouse mouvement in the Canvas3D */
-    MouseOrbiter mouseOrbiter;
 
     // lights
  
@@ -179,10 +178,6 @@ public  class World   {
         // Add both branch to the unique locale
         locale.addBranchGraph(viewBranch);
         locale.addBranchGraph(sceneBranch);
-      
-        
-        // Add mouse control in the canvas3d 
-        mouseOrbiter = new MouseOrbiter(canvas3d,viewTransformGroup);
 
         	// sets initial viewpoint
         changeViewPoint(ed.worldViewPoint,null);
@@ -476,7 +471,6 @@ public  class World   {
         Transform3D t2 = new Transform3D();
         t1.setIdentity();
         t2.setIdentity();
-        mouseOrbiter.resetView();
         switch (type) {
         case VIEW_FROM_TOP:
             t1.lookAt(new Point3d(0, worldSize * 1.8, 0),

@@ -18,10 +18,6 @@ import javax.swing.JFrame;
 import javax.vecmath.Vector3d;
 import Controller.Controller;
 import Model.Agent;
-import Model.EnvironmentDescription;
-import Model.MyEnv;
-import Model.Robot;
-import Model.RobotPartner;
 import Model.SimpleAgent;
 import Model.Simulator;
 import Model.World;
@@ -30,9 +26,6 @@ public class MainGUI extends JFrame implements KeyListener{
 	
 	// ATTRIBUTS
 	Controller controller;
-	Robot robot;
-	RobotPartner robotPartner;
-	EnvironmentDescription ed;
 	World world;
 	WorldWindow worldWindow;
 	Simulator simulator;
@@ -40,12 +33,9 @@ public class MainGUI extends JFrame implements KeyListener{
 	AgentInspector agentInspector=null;
 
 	public MainGUI(Controller controller) {
-		this.controller = controller;
-		robot = new Robot(new Vector3d(8.5, 0, 8), "Robot", controller);
-		robotPartner = new RobotPartner(new Vector3d(-7.5, 0, -7), "RobotPartner", controller);
-		ed = new MyEnv(robot, robotPartner);
-		world = new World(ed);
-		simulator = new Simulator(desktop, world, ed, 0, false);
+		controller = controller;
+		world = controller.getWorld();		
+		simulator = new Simulator(desktop, world, controller.getEd(), 0, false);
 		desktop = new JDesktopPane();
 		getContentPane().add(desktop);
 		
@@ -57,7 +47,7 @@ public class MainGUI extends JFrame implements KeyListener{
         worldWindow.setBorder(null);
         
         AgentFollower agentFollower;
-        agentFollower = new AgentFollower(world, robot);
+        agentFollower = new AgentFollower(world, controller.getRobot());
         //agentFollower.setViewPointType(World.VIEW_ABOVE_AGENT_NEAR);
         agentFollower.setViewPointType(World.VIEW_FROM_TOP);
         agentFollower.resume();

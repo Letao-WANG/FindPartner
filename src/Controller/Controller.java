@@ -1,23 +1,30 @@
 /**
- * Main control program, connection result message and game interface
+ * Main control program, connection View(GUI), Model(Modele) and result message 
  * 
  * @author Letao WANG
  */
 
 package Controller;
 
+import Model.EnvironmentDescription;
+import Model.Model;
+import Model.Robot;
+import Model.RobotPartner;
+import Model.World;
 import View.FailureMessage;
 import View.MainGUI;
 import View.SuccessMessage;
 
 public class Controller {
-
+	
+	Model model;
 	MainGUI mainGUI;
 	FailureMessage failureMessage;
 	SuccessMessage successMessage;
 	
 	public Controller() {
-		mainGUI = new MainGUI(this);
+		model = new Model(this);
+		mainGUI = new MainGUI(this);	
 	}
 	
 	public void disposeMain() {
@@ -47,6 +54,23 @@ public class Controller {
 	public void Quit() {
 		System.exit(0);
 	}
+
+	public Robot getRobot() {
+		return model.getRobot();
+	}
+
+	public RobotPartner getRobotPartner() {
+		return model.getRobotPartner();
+	}
+
+	public EnvironmentDescription getEd() {
+		return model.getEd();
+	}
+
+	public World getWorld() {
+		return model.getWorld();
+	}
+
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

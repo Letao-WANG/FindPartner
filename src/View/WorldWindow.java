@@ -25,29 +25,58 @@
 package View;
 
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
+import javax.vecmath.Vector3d;
+
 import Model.World;
+
 
 /**
  * This window is used to visualise the 3D world.
  */
-public final class WorldWindow extends JInternalFrame {
-
+public final class WorldWindow extends JInternalFrame implements KeyListener{
+  
 	private static final long serialVersionUID = 1L;
 	World world;
+ 
+    public WorldWindow(World world) {
+        super("world");
+        this.world = world;
+        initialize();
+    }
 
-	public WorldWindow(World world) {
-		super("world");
-		this.world = world;
-		initialize();
+    private void initialize() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.add("Center",world.getCanvas3D());
+         setContentPane(panel);
+        setSize(400, 400);
+        //setResizable(true);
+        /*this.show();
+        setLocation(300, 20);
+        setVisible(true);*/
+    }
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		//setTranslationalVelocity(0.5);	
+		System.exit(0);
+		
 	}
 
-	private void initialize() {
-		JPanel panel = new JPanel();
-		panel.setLayout(new BorderLayout());
-		panel.add("Center", world.getCanvas3D());
-		setContentPane(panel);
-		setSize(400, 400);
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
