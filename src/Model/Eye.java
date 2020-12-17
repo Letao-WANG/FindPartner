@@ -151,7 +151,7 @@ public class Eye extends SensorDevice {
         super.create3D(true);
         // body
         if (radius > 0) {
-            Color3f color = new Color3f(0.8f, 0.8f, 0.0f);
+            Color3f color = new Color3f(0.8f, 0, 0);
             Appearance appear = new Appearance();
             appear
                     .setMaterial(new Material(color, black, color, white,
@@ -264,4 +264,11 @@ public class Eye extends SensorDevice {
     public int getImageHeight(){
         return imageHeight;
     }
+    /**
+     * Returns the captured image
+     * @return captured image
+     */
+    public BufferedImage getVisionImage() {
+		return visionImage;
+	}
 }

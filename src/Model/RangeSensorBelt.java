@@ -236,10 +236,10 @@ public class RangeSensorBelt extends PickSensor {
 		
 		appear.setColoringAttributes(ca);
         appear.setMaterial(material);
-        Shape3D shape = new Shape3D( line, appear );
+        /*Shape3D shape = new Shape3D( line, appear );
         shape.setCollidable(false);
         shape.setPickable(false);
-        addChild(shape);
+        addChild(shape);*/
        
     }  
     protected void update() {

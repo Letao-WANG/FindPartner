@@ -24,12 +24,12 @@ public class FailureMessage extends JFrame implements ActionListener {
 		getContentPane().setLayout(null);
 
 		JButton btnRestart = new JButton("Restart");
-		btnRestart.setBounds(79, 100, 117, 58);
+		btnRestart.setBounds(40, 108, 92, 42);
 		getContentPane().add(btnRestart);
 		btnRestart.addActionListener(this);
 
 		JButton btnQuit = new JButton("Quit");
-		btnQuit.setBounds(226, 100, 117, 58);
+		btnQuit.setBounds(240, 108, 92, 42);
 		getContentPane().add(btnQuit);
 		btnQuit.addActionListener(this);
 
@@ -40,6 +40,11 @@ public class FailureMessage extends JFrame implements ActionListener {
 		JLabel lblAgain = new JLabel("Want to try again ?");
 		lblAgain.setBounds(77, 56, 151, 26);
 		getContentPane().add(lblAgain);
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.setBounds(140, 108, 92, 42);
+		getContentPane().add(btnMenu);
+		btnMenu.addActionListener(this);
 
 		setBounds(100, 100, 400, 250);
 		setVisible(true);
@@ -52,8 +57,12 @@ public class FailureMessage extends JFrame implements ActionListener {
 		if ("Quit".equals(command)) {
 			controller.Quit();
 		}
-		if ("Restart".equals(command)) {
-			controller.ShowMain();
+		else if ("Restart".equals(command)) {
+			controller.showGame();
+			controller.disposeFailureMessage();
+		}
+		else if ("Menu".equals(command)) {
+			controller.showMenu();
 			controller.disposeFailureMessage();
 		}
 	}

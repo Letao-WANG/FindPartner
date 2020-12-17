@@ -59,7 +59,7 @@ public class AgentFollower implements Runnable {
                 // don't need precise time tick
                 // do multiple sleep to diminish ui latency
                 for (int i=0;i<30;i++){
-                    Thread.sleep(100);
+                    Thread.sleep(0);
                     if (changed) break;
                 }
 

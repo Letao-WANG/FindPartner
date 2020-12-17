@@ -303,7 +303,7 @@ public  class World   {
         light2.setEnable(wd.light2IsOn);
         
         createFloor(wd);
-        if (wd.hasAxis) createAxis();
+        //if (wd.hasAxis) createAxis();
         
         pickableSceneBranch = new BranchGroup();
         sceneTrans.addChild(pickableSceneBranch);

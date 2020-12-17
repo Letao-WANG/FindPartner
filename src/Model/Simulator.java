@@ -99,6 +99,9 @@ public class Simulator {
 	 * @param applicationComponent - A reference to the main Application container.
 	 * @param world                - The 3d world object.
 	 * @param ed                   - the Environment description.
+	 * 
+	 * @param direction	           - The direction of Robot moves
+	 * @param robotStart           - If Robot can move
 	 */
 	public Simulator(JComponent applicationComponent, World world, EnvironmentDescription ed, int direction,
 			boolean robotStart) {
@@ -442,7 +445,7 @@ public class Simulator {
 			setPriority(Thread.MAX_PRIORITY);
 			VirtualUniverse.setJ3DThreadPriority(Thread.MIN_PRIORITY);
 			int count = 0;
-			int rendererRate = 100000;
+			int rendererRate = 10000;
 			System.out.println("[SIM] Starting Background mode");
 			try {
 				// First wait a bit so J3d is settled ?

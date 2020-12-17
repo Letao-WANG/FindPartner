@@ -25,26 +25,22 @@
 package View;
 
 import java.awt.BorderLayout;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
-import javax.vecmath.Vector3d;
-
+import Controller.Controller;
 import Model.World;
 
 
 /**
  * This window is used to visualise the 3D world.
  */
-public final class WorldWindow extends JInternalFrame implements KeyListener{
+public final class WorldWindow extends JInternalFrame{
   
 	private static final long serialVersionUID = 1L;
 	World world;
  
-    public WorldWindow(World world) {
-        super("world");
+    public WorldWindow(World world, Controller controller) {
+        super("Level " + Integer.toString(controller.getLevel()));
         this.world = world;
         initialize();
     }
@@ -54,29 +50,6 @@ public final class WorldWindow extends JInternalFrame implements KeyListener{
         panel.setLayout(new BorderLayout());
         panel.add("Center",world.getCanvas3D());
          setContentPane(panel);
-        setSize(400, 400);
-        //setResizable(true);
-        /*this.show();
-        setLocation(300, 20);
-        setVisible(true);*/
+        setSize(1000, 800);
     }
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		//setTranslationalVelocity(0.5);	
-		System.exit(0);
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 }

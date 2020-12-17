@@ -123,7 +123,8 @@ public class Agent extends SimpleAgent {
     /** Create 3D geometry. */
     protected void create3D(){
   
-        Color3f color = new Color3f(0.0f,0.8f,0.0f);
+        //Color3f color = new Color3f(0.0f,0.8f,0.0f);
+        Color3f color = new Color3f(0.0f,0.0f,0.0f);
         Color3f color2 = new Color3f(1.0f,0.0f,0.0f);
         // body
         Appearance  appear = new Appearance();
@@ -134,9 +135,10 @@ public class Agent extends SimpleAgent {
         material.setSpecularColor(black);
         appear.setMaterial(material);
         int flags = Primitive.GEOMETRY_NOT_SHARED | Primitive.ENABLE_GEOMETRY_PICKING | Primitive.GENERATE_NORMALS;
-        flags |= Primitive.ENABLE_APPEARANCE_MODIFY;
+         flags |= Primitive.ENABLE_APPEARANCE_MODIFY;
       
         body = new Cylinder(radius,height,flags,appear);
+        //body = new Cylinder(radius,height,appear);
         
        /* // allow geom intersect on each geom of the primitive cylinder
         allowIntersect(body.getShape(Cylinder.BODY));
@@ -159,8 +161,7 @@ public class Agent extends SimpleAgent {
                 0,1,0,
                 0,1,0
         };
-        TriangleArray tris = new TriangleArray( coords.length,
-    	        GeometryArray.COORDINATES|GeometryArray.NORMALS);
+        TriangleArray tris = new TriangleArray( coords.length, GeometryArray.COORDINATES|GeometryArray.NORMALS);
         
         tris.setCoordinates( 0, coords );
         tris.setNormals( 0, normals );
@@ -169,9 +170,9 @@ public class Agent extends SimpleAgent {
 	    appear.setMaterial(new Material(color2, black,
 	                                  color2, white, 100.0f));
 
-	    Shape3D s = new Shape3D(tris,appear);
+	    /*Shape3D s = new Shape3D(tris,appear);
 	    s.setPickable(false);
-	    addChild(s);
+	    addChild(s);*/
 	    
 	    // Add bounds for interactions and collision
 	    Bounds bounds = new BoundingSphere(new Point3d(0,0,0),radius);

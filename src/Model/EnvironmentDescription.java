@@ -91,7 +91,7 @@ public class EnvironmentDescription {
         ambientLightColor = white;
         light1Color = white;
         light2Color = white;
-        wallColor = blue;
+        wallColor = darkgray;
         archColor = green;
         boxColor = red;
         floorColor = ligthgray;
