@@ -13,7 +13,21 @@ import java.io.InputStreamReader;
 import javax.vecmath.Color3f;
 import javax.vecmath.Vector3d;
 
+import Controller.Controller;
+
 public class MyEnv extends EnvironmentDescription {
+
+	Controller controller;
+	int level;
+
+	public MyEnv(Robot robot, RobotPartner robotPartner, int level) {
+		this.controller = controller;
+		this.level = level;
+		add(robotPartner);
+		add(robot);
+		lireFichier();
+	}
+
 	public MyEnv(Robot robot, RobotPartner robotPartner) {
 		add(robotPartner);
 		add(robot);
@@ -23,7 +37,7 @@ public class MyEnv extends EnvironmentDescription {
 	private void lireFichier() {
 
 		try {
-			String nomFichier = "myenv.txt";
+			String nomFichier = "../env_files/myenv" + Integer.toString(level) + ".txt";
 
 			String ligne = null;
 			InputStream ips = this.getClass().getResourceAsStream(nomFichier);
@@ -56,7 +70,6 @@ public class MyEnv extends EnvironmentDescription {
 			tmp = new RobotHostile(new Vector3d(Integer.parseInt(tabChamp[1]), Integer.parseInt(tabChamp[2]),
 					Integer.parseInt(tabChamp[3])), "RobotHostile");
 		}
-
 		if (tmp != null)
 			add(tmp);
 

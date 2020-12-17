@@ -35,7 +35,7 @@ public class RobotPartner extends Agent {
 		SimpleAgent agent = getVeryNearAgent();
 		if (agent instanceof Robot) {
 			this.detach();
-			controller.disposeMain();
+			controller.disposeGame();
 			controller.ShowSuccessMessage();
 		}
 	}

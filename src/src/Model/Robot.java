@@ -40,7 +40,7 @@ public class Robot extends Agent {
 			SimpleAgent agent = getVeryNearAgent();
 			if (agent instanceof RobotHostile) {
 				agent.detach();
-				controller.disposeMain();
+				controller.disposeGame();
 				controller.ShowFailureMessage();
 
 			}

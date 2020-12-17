@@ -1,6 +1,8 @@
 /**
- * Main control program, connection View(GUI), Model(Modele) and result message 
+ * Main control program, connect View(GUI), Model(Modele)
+ * Realize the connection between multiple windows
  * 
+ * @author Jingyao FANG
  * @author Letao WANG
  */
 
@@ -11,70 +13,139 @@ import Model.Model;
 import Model.Robot;
 import Model.RobotPartner;
 import Model.World;
-import View.FailureMessage;
-import View.MainGUI;
-import View.SuccessMessage;
+import View.MainView;
 
 public class Controller {
+	int level;
+	int viewType;
 	Model model;
-	MainGUI mainGUI;
-	FailureMessage failureMessage;
-	SuccessMessage successMessage;
-	
+	MainView mainView;
 	/**
-	 * Create model and mainGUI
+	 * Create model and game
 	 */
 	public Controller() {
-		model = new Model(this);
-		mainGUI = new MainGUI(this);	
+		// level is 1 by default 
+		level = 1;
+		//point of view by default
+		viewType = World.VIEW_FROM_TOP;
+		
+		model = new Model(this, level);
+		mainView = new MainView(this);
 	}
 	
-	public void disposeMain() {
-		mainGUI.dispose();
+	public void disposeGame() {
+		mainView.disposeGame();
 	}
 	
-	public void disposeFailureMessage() {
-		failureMessage.dispose();
+	/**
+	 * Open game window
+	 */
+	public void showGame() {
+		model = new Model(this, level);
+		mainView.showGame();
 	}
 	
-	public void disposeSuccessMessage() {
-		successMessage.dispose();
+	/**
+	 * Open game menu
+	 */
+	public void showMenu() {
+		mainView.showMenu();;
 	}
 	
-	public void ShowFailureMessage() {
-		failureMessage = new FailureMessage(this);
+	/**
+	 * @return game difficulty level
+	 */
+	public int getLevel() {
+		return this.level;
 	}
 	
-	public void ShowSuccessMessage() {
-		successMessage = new SuccessMessage(this);
+	/**
+	 * Set game difficulty level
+	 * @param level game difficulty level
+	 */
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	
-	public void ShowMain() {
-		model = new Model(this);
-		mainGUI = new MainGUI(this);
-	}
-	
+	/**
+	 * End the program
+	 */
 	public void Quit() {
 		System.exit(0);
 	}
 
+	/**
+	 * @return Robot (white) which is controled by player
+	 */
 	public Robot getRobot() {
 		return model.getRobot();
 	}
 
+	/**
+	 * @return RobotPartner (white) which player aimed to rescue
+	 */
 	public RobotPartner getRobotPartner() {
 		return model.getRobotPartner();
 	}
 
+	/**
+	 * Get EnvironmentDescription
+	 * @return MyEnv for this program
+	 */
 	public EnvironmentDescription getEd() {
 		return model.getEd();
 	}
+	
+	/**
+	 * Set the game perspective
+	 * @param viewType game perspective
+	 */
+	public void setViewType(int viewType) {
+		this.viewType = viewType;
+	}
+	
+	/**
+	 * @return game perspective
+	 */
+	public int getViewType() {
+		return viewType;
+	}
 
+	/**
+	 * @return the world we describe
+	 */
 	public World getWorld() {
 		return model.getWorld();
 	}
-
 	
+	/**
+	 * Close failure message
+	 */
+	public void disposeFailureMessage() {
+		mainView.disposeFailureMessage();
+	}
+	
+	/**
+	 * Close success message
+	 */
+	public void disposeSuccessMessage() {
+		mainView.disposeSuccessMessage();
+	}
+	
+	/**
+	 * Open failure message
+	 */
+	public void ShowFailureMessage() {
+		mainView.ShowFailureMessage();
+	}
+	
+	/**
+	 * Open success message
+	 */
+	public void ShowSuccessMessage() {
+		mainView.ShowSuccessMessage();
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new Controller();
