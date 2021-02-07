@@ -1,19 +1,16 @@
-/**
- * Set the environment according to the configuration file ( myenv.txt )
- * 
- * @author Jingyao Fang
- */
-
 package Model;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
-import javax.vecmath.Color3f;
 import javax.vecmath.Vector3d;
-
 import Controller.Controller;
+
+/**
+ * Set the environment according to the configuration file ( myenv.txt )
+ * 
+ * @author Jingyao Fang
+ */
 
 public class MyEnv extends EnvironmentDescription {
 

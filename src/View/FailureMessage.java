@@ -1,9 +1,3 @@
-/**
- * This window pops up when the player fails the game
- * 
- * @author Letao WANG
- */
-
 package View;
 
 import javax.swing.JFrame;
@@ -13,6 +7,12 @@ import Controller.Controller;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+/**
+ * This window pops up when the player fails the game
+ * 
+ * @author Letao WANG
+ */
+
 public class FailureMessage extends JFrame implements ActionListener {
 
 	Controller controller;
@@ -20,7 +20,7 @@ public class FailureMessage extends JFrame implements ActionListener {
 	public FailureMessage(Controller controller) {
 
 		this.controller = controller;
-
+		setTitle("Failure");
 		getContentPane().setLayout(null);
 
 		JButton btnRestart = new JButton("Restart");

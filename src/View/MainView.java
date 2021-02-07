@@ -1,12 +1,11 @@
+package View;
+import Controller.Controller;
+
 /**
  * This class is for manage view files (GUI)
  * 
  * @author Letao WANG
  */
-
-package View;
-
-import Controller.Controller;
 
 public class MainView {
 	

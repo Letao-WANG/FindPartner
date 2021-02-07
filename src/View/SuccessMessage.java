@@ -1,30 +1,29 @@
+package View;
+import javax.swing.JFrame;
+
+import javax.swing.JLabel;
+
+import Controller.Controller;
+import Model.World;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
 /**
  * This window pops up when the player wins the game
  * 
  * @author Letao WANG
  * @author Jingyao FANG
  */
-
-package View;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
-import Controller.Controller;
-import Model.World;
-
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-
 public class SuccessMessage extends JFrame implements ActionListener {
 
 	Controller controller;
 
 	public SuccessMessage(Controller controller) {
 		this.controller = controller;
+		setTitle("Success");
 		getContentPane().setLayout(null);
 
 		JLabel lblSuccess = new JLabel("You have successfully found your partner ");
@@ -44,7 +43,7 @@ public class SuccessMessage extends JFrame implements ActionListener {
 		btnQuit.setBounds(261, 116, 73, 42);
 		getContentPane().add(btnQuit);
 		btnQuit.addActionListener(this);
-		
+
 		JButton btnMenu = new JButton("Menu");
 		btnMenu.setBounds(165, 116, 73, 42);
 		getContentPane().add(btnMenu);
@@ -62,12 +61,12 @@ public class SuccessMessage extends JFrame implements ActionListener {
 			controller.Quit();
 		}
 		if ("Next level !".equals(command)) {
-			//increase the level
-			controller.setLevel(controller.getLevel()+1);
+			// increase the level
+			controller.setLevel(controller.getLevel() + 1);
 			// change point of view
-			if ( controller.getLevel()==4 )
+			if (controller.getLevel() == 4)
 				controller.setViewType(World.VIEW_ABOVE_AGENT);
-			else if ( controller.getLevel()==6)
+			else if (controller.getLevel() == 6)
 				controller.setViewType(World.VIEW_ABOVE_AGENT_NEAR);
 			controller.showGame();
 			controller.disposeSuccessMessage();

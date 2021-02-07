@@ -1,10 +1,3 @@
-/**
- * Robot partner sought by robot  controlled by player
- * Move slowly as close as possible to Robot or move without touching the wall
- * 
- * @author Letao WANG
- */
-
 package Model;
 
 import java.awt.Color;
@@ -13,6 +6,13 @@ import javax.vecmath.Vector3d;
 import Model.Agent;
 import Model.RangeSensorBelt;
 import Model.RobotFactory;
+
+/**
+ * Robot partner sought by robot  controlled by player
+ * Move slowly as close as possible to Robot or move without touching the wall
+ * 
+ * @author Letao WANG
+ */
 
 public class RobotHostile extends Agent {
 

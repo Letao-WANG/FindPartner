@@ -1,11 +1,3 @@
-/**
- * Main control program, connect View(GUI), Model(Modele)
- * Realize the connection between multiple windows
- * 
- * @author Jingyao FANG
- * @author Letao WANG
- */
-
 package Controller;
 
 import Model.EnvironmentDescription;
@@ -14,6 +6,14 @@ import Model.Robot;
 import Model.RobotPartner;
 import Model.World;
 import View.MainView;
+
+/**
+ * Main control program, connect View(GUI), Model(Modele)
+ * Realize the connection between multiple windows
+ * 
+ * @author Jingyao FANG
+ * @author Letao WANG
+ */
 
 public class Controller {
 	int level;

@@ -1,14 +1,14 @@
-/**
- * Manage Robot, RobotPartner, EnvironmentDescription, World and transfer data to Game
- * 
- * @author Letao WANG
- */
-
 package Model;
 
 import javax.vecmath.Color3f;
 import javax.vecmath.Vector3d;
 import Controller.Controller;
+
+/**
+ * Manage Robot, RobotPartner, EnvironmentDescription, World and transfer data to Game
+ * 
+ * @author Letao WANG
+ */
 
 public class Model {
 	

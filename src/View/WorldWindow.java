@@ -50,6 +50,6 @@ public final class WorldWindow extends JInternalFrame{
         panel.setLayout(new BorderLayout());
         panel.add("Center",world.getCanvas3D());
          setContentPane(panel);
-        setSize(1000, 800);
+        setSize(1200, 800);
     }
 }

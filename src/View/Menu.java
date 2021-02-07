@@ -1,14 +1,6 @@
-/**
- * Game menu
- * Players can choose different difficulty levels
- * 
- * @author Jingyao FANG
- * @author Letao WANG
- */
-
 package View;
-
 import javax.swing.JFrame;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import java.awt.Color;
@@ -21,6 +13,14 @@ import javax.swing.JRadioButton;
 import Controller.Controller;
 import Model.World;
 
+/**
+ * Game menu
+ * Players can choose different difficulty levels
+ * 
+ * @author Jingyao FANG
+ * @author Letao WANG
+ */
+
 public class Menu extends JFrame {
 	
 	private final JTextPane txtPnWelcome = new JTextPane();
@@ -29,10 +29,11 @@ public class Menu extends JFrame {
 	public Menu(Controller controller) {
 		this.controller = controller;
 		
+		setTitle("Menu");
 		getContentPane().setLayout(null);
 		txtPnWelcome.setText(
-				"Welcome to FindPartner !\n\nYou are a white robot. Your task is to rescue your white RobotPartner, and the only thing you know is that the RobotPartner is northwest of you.  There are many hostile black robots who want to catch yom, you can avoid or lure them into a nearby wall. Once the black robot hits the wall, it cannot move.\n\nArrow keys control movement. \nChoose the difficulty level and start game !");
-		txtPnWelcome.setBounds(12, 12, 416, 156);
+				"Welcome to FindPartner !\n\nYou are a white robot. Your task is to rescue your white RobotPartner, and the only thing you know is that the RobotPartner is northwest of you.  There are many hostile black robots who want to catch you, you can avoid or lure them into a nearby wall. Once the black robot hits the wall, it cannot move.\n\nArrow keys control movement. \nChoose the difficulty level and start game !");
+		txtPnWelcome.setBounds(12, 12, 599, 156);
 		getContentPane().add(txtPnWelcome);
 
 		ButtonGroup bg = new ButtonGroup();
@@ -78,7 +79,7 @@ public class Menu extends JFrame {
 		getContentPane().add(rdLevel8);
 
 		JButton btnStart = new JButton("Start game!");
-		btnStart.setBounds(276, 195, 133, 25);
+		btnStart.setBounds(448, 198, 133, 25);
 		getContentPane().add(btnStart);
 
 		bg.add(rdLevel1);
@@ -91,7 +92,7 @@ public class Menu extends JFrame {
 		bg.add(rdLevel8);
 		
 		JButton btnQuit = new JButton("Quit");
-		btnQuit.setBounds(276, 230, 133, 25);
+		btnQuit.setBounds(448, 238, 133, 25);
 		getContentPane().add(btnQuit);
 		btnQuit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -132,12 +133,14 @@ public class Menu extends JFrame {
 				else if (rdLevel5.isSelected()) {
 					controller.setLevel(5);
 					controller.setViewType(World.VIEW_ABOVE_AGENT);
+					//controller.setViewType(World.VIEW_FROM_TOP);
 					controller.showGame();
 					dispose();
 				}
 				else if (rdLevel6.isSelected()) {
 					controller.setLevel(6);
 					controller.setViewType(World.VIEW_ABOVE_AGENT);
+					//controller.setViewType(World.VIEW_FROM_TOP);
 					controller.showGame();
 					dispose();
 					
@@ -145,12 +148,14 @@ public class Menu extends JFrame {
 				else if (rdLevel7.isSelected()) {
 					controller.setLevel(7);
 					controller.setViewType(World.VIEW_ABOVE_AGENT_NEAR);
+					//controller.setViewType(World.VIEW_FROM_TOP);
 					controller.showGame();
 					dispose();
 				}
 				else if (rdLevel8.isSelected()) {
 					controller.setLevel(8);
 					controller.setViewType(World.VIEW_ABOVE_AGENT_NEAR);
+					
 					controller.showGame();
 					dispose();
 				}
@@ -164,7 +169,7 @@ public class Menu extends JFrame {
 		
 		
 		
-		setBounds(100, 100, 440, 320);
+		setBounds(100, 100, 640, 320);
 		setVisible(true);
 
 	}

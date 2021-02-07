@@ -1,6 +1,20 @@
+package View;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.JButton;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import Controller.Controller;
+import Model.Simulator;
+import Model.World;
+import javax.swing.JTextPane;
+
 /**
  * Main game window
- * Build Robot, RobotPartner, MyEnv, World, WorldWindow, Simulator, AgentInspector
+ * Build Robot, RobotPartner, MyEnv, World, WorldWindow, Simulator
  * The game interface is displayed by WorldWindow
  * 
  * The player controls Robot through the arrow keys according to the WorldWindow to play the game
@@ -10,21 +24,6 @@
  * @version 1.2
  */
 
-package View;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-import javax.swing.JButton;
-import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
-import Controller.Controller;
-import Model.Simulator;
-import Model.World;
-import javax.swing.JTextPane;
-
 public class Game extends JFrame implements KeyListener {
 
 	// ATTRIBUTS
@@ -33,13 +32,13 @@ public class Game extends JFrame implements KeyListener {
 	WorldWindow worldWindow;
 	Simulator simulator;
 	JDesktopPane desktop;
-	AgentInspector agentInspector = null;
 	
 	JButton btnMenu;
 	
 	public Game(Controller controller) {
 		getContentPane().setLayout(null);
 		this.controller = controller;
+		setTitle("Game");
 		world = controller.getWorld();
 		simulator = new Simulator(desktop, world, controller.getEd(), 0, false);
 		desktop = new JDesktopPane();
@@ -72,7 +71,7 @@ public class Game extends JFrame implements KeyListener {
 		desktop.add(btnMenu);
 		
 		JTextPane txtpnArrowKeysControl = new JTextPane();
-		txtpnArrowKeysControl.setText("Arrow keys control robot movement.\n\nYou control the robot to move and rescue your white RobotPartner, but you cannot touch the black RobotHostile.\n\nBe careful not to click on the window with the mouse, otherwise the keyboard signal cannot be obtained.\n\nBon courage !");
+		txtpnArrowKeysControl.setText("Arrow keys control robot movement.\n\nYou control the robot to move and rescue your white RobotPartner which is northwest of you, but you cannot touch the black RobotHostile.\n\nBe careful not to click on the window with the mouse, otherwise the keyboard signal cannot be obtained.\n\nBon courage !");
 		txtpnArrowKeysControl.setBounds(20, 77, 155, 382);
 		desktop.add(txtpnArrowKeysControl);
 		btnMenu.addActionListener(new ActionListener() {
